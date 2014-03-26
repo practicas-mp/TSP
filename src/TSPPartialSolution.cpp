@@ -4,7 +4,7 @@
 
 TSPPartialSolution::TSPPartialSolution(TSPProblem problem){
 	this->problem = &problem;
-	this->distances = problem.getDistances();
+	this->distances = problem.getDistancesMatrix();
 
 	this->number_of_cities = problem.getNumberOfCities();
 
