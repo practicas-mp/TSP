@@ -1,3 +1,5 @@
+#ifndef TSPPROBLEM_H
+#define TSPPROBLEM_H
 #include "TSPPoint.h"
 #include "TSPSolver.h"
 
@@ -70,3 +72,5 @@ class TSPProblem {
 
 		int getNumberOfCities();
 };
+
+#endif

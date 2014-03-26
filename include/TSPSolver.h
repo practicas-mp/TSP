@@ -1,3 +1,6 @@
+#ifndef TSPSOLVER_H
+#define TSPSOLVER_H
+
 using namespace std;
 
 
@@ -8,3 +11,5 @@ using namespace std;
 
 class TSPSolver {
 };
+
+#endif

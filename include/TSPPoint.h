@@ -1,3 +1,6 @@
+#ifndef TSPPOINT_H
+#define TSPPOINT_H
+
 using namespace std;
 
 
@@ -34,4 +37,21 @@ class TSPPoint {
 		 */
 
 		double getDistanceTo(TSPPoint other);
-}
+
+		/**
+		 * Obtiene la abscisa de la ciudad
+		 * @return la abscisa de la ciudad
+		 */
+
+		double getX();
+
+		/**
+		 * Obtiene la ordenada de la ciudad
+		 * @return la ordenada de la ciudad
+		 */
+
+		double getY();
+			
+};
+
+#endif
