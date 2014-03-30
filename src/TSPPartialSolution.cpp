@@ -17,13 +17,18 @@ TSPPartialSolution::TSPPartialSolution(TSPProblem problem){
 double  TSPPartialSolution::getCostOfInsertion(int city, int position){
 	double cost = 0;
 
-	int city_before = cities[position - 1];
-	int city_after = cities[position];
+	if (position == 0 or position == cities_inserted){
+		cost += distances[cities[position]][city];
+	}
+	else {
+		int city_before = cities[position - 1];
+		int city_after = cities[position];
 
-	cost += distances[city_before][city];
-	cost += distances[city_after][city];
+		cost += distances[city_before][city];
+		cost += distances[city_after][city];
 
-	cost -= distances[city_before][city_after];
+		cost -= distances[city_before][city_after];
+	}
 
 	return cost;
 }
@@ -36,4 +41,17 @@ void TSPPartialSolution::insertCity(int city, int position){
 
 	cities[position] = city;
 	
+	cities_inserted++;
 }
+
+TSPProblem TSPPartialSolution::getProblem(){
+	return *problem;
+}
+
+int TSPPartialSolution::getNumberOfCities(){
+	return cities_inserted;	
+}
+
+int* TSPPartialSolution::getCities(){
+	return cities;
+};

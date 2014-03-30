@@ -13,8 +13,7 @@ private:
 
 	double **distances;
 
-
-
+	
 
 public:
 	
@@ -45,4 +44,28 @@ public:
 	void insertCity(int city, int position);
 
 	
+
+	/**
+		@brief Un getter para el objeto problema asociado a la solución parcial
+		@return El objeto problema asociado a la solución parcial
+
+	*/
+	TSPProblem getProblem();
+
+
+	/**
+		@brief Devuelve el número de ciudades de la solución parcial
+		@return El número de ciudades de la solución parcial
+
+	*/
+
+	int getNumberOfCities();
+
+
+	/**
+		@brief Devuelve las ciudades tal como han sido insertadas
+		@return un array con las ciudades tal como fueron insertadas
+	*/
+	int *getCities();
+
 };
