@@ -9,7 +9,11 @@ TSPPartialSolution::TSPPartialSolution(TSPProblem problem){
 	this->number_of_cities = problem.getNumberOfCities();
 
 	this->cities = new int[this->number_of_cities];
+
+
 	this->visitadas = new bool[this->number_of_cities];
+	for(int i = 0; i < number_of_cities; i++)
+		visitadas[i] = false;
 
 	this->cities_inserted = 0;
 }
@@ -40,6 +44,7 @@ void TSPPartialSolution::insertCity(int city, int position){
 	}
 
 	cities[position] = city;
+	visitadas[city] = true;
 	
 	cities_inserted++;
 }
@@ -54,4 +59,8 @@ int TSPPartialSolution::getNumberOfCities(){
 
 int* TSPPartialSolution::getCities(){
 	return cities;
+};
+
+bool isAlreadyVisited(int city){
+	return visitadas[city];
 };
