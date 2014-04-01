@@ -21,18 +21,18 @@ TSPPartialSolution::TSPPartialSolution(TSPProblem problem){
 double  TSPPartialSolution::getCostOfInsertion(int city, int position){
 	double cost = 0;
 
-	if (position == 0 or position == cities_inserted){
-		cost += distances[cities[position]][city];
-	}
-	else {
-		int city_before = cities[position - 1];
-		int city_after = cities[position];
+	if (position == 0)
+		position = number_of_cities;
+	
 
-		cost += distances[city_before][city];
-		cost += distances[city_after][city];
+	int city_before = cities[position - 1];
+	int city_after = cities[position % number_of_cities];
 
-		cost -= distances[city_before][city_after];
-	}
+	cost += distances[city_before][city];
+	cost += distances[city_after][city];
+
+	cost -= distances[city_before][city_after];
+	
 
 	return cost;
 }
