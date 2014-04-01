@@ -68,4 +68,11 @@ public:
 	*/
 	int *getCities();
 
+
+	/**
+		@brief Devuelve si una ciudad ha sido insertada previamente
+		@return true si ha sido insertada
+	*/
+	bool isAlreadyVisited(int city);
+
 };
