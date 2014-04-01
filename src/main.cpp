@@ -14,9 +14,9 @@ int main(int argc, char *argv[]){
 
 	}
 
-	TSPReader reader(argv[1]);
+	TSPReader reader;
 
-	TSPProblem problem = reader.read();
+	TSPProblem problem = reader.read(string(argv[1]));
 
 	TSPSolution sol = problem.solve();
 
