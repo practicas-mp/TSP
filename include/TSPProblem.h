@@ -71,6 +71,18 @@ class TSPProblem {
 		 */			
 
 		int getNumberOfCities();
+
+		/**
+		 * @brief Método para obtener la solución del problema con la heurística
+		 * particular que se pasara en el constructor.
+		 */
+			
+		TSPSolution* solve(){
+
+			return this->solver->solve();
+			
+		}
+
 };
 
 #endif

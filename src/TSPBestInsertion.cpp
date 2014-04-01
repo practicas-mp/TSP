@@ -25,7 +25,7 @@ void TSPBestInsertion::insertNextCity(TSPPartialSolution *partial){
 
 		for(int pos = 0; pos < total_inserted; pos++){
 
-			if(not partial.isVisited(city)){
+			if(not partial.isAlreadyVisited(city)){
 
 				curr_dist = partial->getCostOfInsertion();
 
