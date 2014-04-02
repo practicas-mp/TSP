@@ -13,7 +13,7 @@ TSPProblem::TSPProblem(TSPPoint* cities, int num_cities){
 }
 
 
-TSPProblem::computeDistances(){
+void TSPProblem::computeDistances(){
 
 	TSPPoint *city_i, *city_j;
 	double dist;
@@ -24,8 +24,8 @@ TSPProblem::computeDistances(){
 
 		for(int j = i + 1; j < this->num_cities; j++){
 
-			city_i = &(this->cities[i][j]);
-			city_j = &(this->cities[j][i]);
+			city_i = &(this->cities[i]);
+			city_j = &(this->cities[j]);
 
 			dist = city_i->getDistanceTo(*city_j);
 
@@ -50,4 +50,8 @@ int TSPProblem::getNumberOfCities(){
 
 	return this->num_cities;
 
+}
+
+TSPSolution TSPProblem::solve(){
+	return this->solver->solve();
 }

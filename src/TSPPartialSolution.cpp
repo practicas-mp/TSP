@@ -1,4 +1,3 @@
-#include <stderr>
 #include "TSPPartialSolution.h"
 #include "TSPProblem.h"
 
@@ -61,6 +60,6 @@ int* TSPPartialSolution::getCities(){
 	return cities;
 };
 
-bool isAlreadyVisited(int city){
+bool TSPPartialSolution::isAlreadyVisited(int city){
 	return visitadas[city];
 };

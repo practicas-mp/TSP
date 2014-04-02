@@ -47,16 +47,14 @@ class TSPBestInsertion: public TSPSolver {
 		 * el "algoritmo" seguido por esta solución del problema
 		 */			
 
-		void insertNextCity();
+		void insertNextCity(TSPPartialSolution*);
 
 		/**
 		 * Método para resolver por completo el problema que se
 		 * nos proporciona
 		 * @return Puntero a la solución TSPSolution del problema
 		 */			
-
-		TSPSolution* solve();
-
+		 TSPSolution solve();
 };
 
 #endif

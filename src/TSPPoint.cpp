@@ -3,6 +3,7 @@
 
 using namespace std;
 
+TSPPoint::TSPPoint(){}
 
 TSPPoint::TSPPoint(double x, double y){
 

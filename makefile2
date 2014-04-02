@@ -1,0 +1,29 @@
+INCLUDE=./include
+
+all: bin/tsp
+
+bin/tsp: obj/main.o obj/TSPBestInsertion.o  obj/TSPPartialSolution.o  obj/TSPPoint.o  obj/TSPProblem.o  obj/TSPProblemReader.o  obj/TSPSolution.o  
+	g++ -o $@ obj/main.o obj/TSPBestInsertion.o  obj/TSPPartialSolution.o  obj/TSPPoint.o  obj/TSPProblem.o  obj/TSPProblemReader.o  obj/TSPSolution.o  
+obj/main.o:
+	g++ -I $(INCLUDE) -c -o ./obj/main.o  ./src/main.cpp
+
+obj/TSPBestInsertion.o:
+	g++ -I $(INCLUDE) -c -o ./obj/TSPBestInsertion.o  ./src/TSPBestInsertion.cpp
+
+obj/TSPPartialSolution.o:
+	g++ -I $(INCLUDE) -c -o ./obj/TSPPartialSolution.o  ./src/TSPPartialSolution.cpp
+
+obj/TSPPoint.o:
+	g++ -I $(INCLUDE) -c -o ./obj/TSPPoint.o  ./src/TSPPoint.cpp
+
+
+obj/TSPProblem.o:  
+	g++ -I $(INCLUDE) -c -o ./obj/TSPProblem.o  ./src/TSPProblem.cpp
+
+obj/TSPProblemReader.o:  
+	g++ -I $(INCLUDE) -c -o ./obj/TSPProblemReader.o  ./src/TSPProblemReader.cpp
+
+obj/TSPSolution.o:  
+	g++ -I $(INCLUDE) -c -o ./obj/TSPSolution.o  ./src/TSPSolution.cpp
+
+

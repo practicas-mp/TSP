@@ -1,6 +1,8 @@
 #ifndef TSPSOLVER_H
 #define TSPSOLVER_H
 
+#include "TSPSolution.h"
+
 using namespace std;
 
 
@@ -10,6 +12,8 @@ using namespace std;
  */
 
 class TSPSolver {
+public:
+	virtual TSPSolution solve();
 };
 
 #endif

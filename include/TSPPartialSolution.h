@@ -1,3 +1,6 @@
+#ifndef TSPPARTIALSOLUTION_H
+#define TSPPARTIALSOLUTION_H
+
 #include "TSPProblem.h"
 
 class TSPPartialSolution {
@@ -76,3 +79,5 @@ public:
 	bool isAlreadyVisited(int city);
 
 };
+
+#endif

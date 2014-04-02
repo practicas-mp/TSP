@@ -77,11 +77,7 @@ class TSPProblem {
 		 * particular que se pasara en el constructor.
 		 */
 			
-		TSPSolution* solve(){
-
-			return this->solver->solve();
-			
-		}
+		TSPSolution solve();
 
 };
 

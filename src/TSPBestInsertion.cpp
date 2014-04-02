@@ -25,9 +25,9 @@ void TSPBestInsertion::insertNextCity(TSPPartialSolution *partial){
 
 		for(int pos = 0; pos < total_inserted; pos++){
 
-			if(not partial.isAlreadyVisited(city)){
+			if(not partial->isAlreadyVisited(city)){
 
-				curr_dist = partial->getCostOfInsertion();
+				curr_dist = partial->getCostOfInsertion(city, pos);
 
 				if(min_dist > curr_dist){
 
@@ -48,7 +48,7 @@ void TSPBestInsertion::insertNextCity(TSPPartialSolution *partial){
 }
 
 
-TSPSolution* TSPBestInsertion::solve(){
+TSPSolution TSPBestInsertion::solve(){
 
 	TSPProblem problem = *this->problem;
 
@@ -58,14 +58,14 @@ TSPSolution* TSPBestInsertion::solve(){
 
 	int total_cities = problem.getNumberOfCities();
 
-	while(partial->getNumberOfCities() <= total_cities){
+	while(partial.getNumberOfCities() <= total_cities){
 
-		this->insertNextCity(partial);
+		this->insertNextCity(&partial);
 
 	}
 
-	TSPSolution sol(*partial);
+	TSPSolution sol(partial.getCities(), partial.getNumberOfCities());
 
-	return &sol;
+	return sol;
 
 }

@@ -4,22 +4,22 @@ DOC = ./doc
 INCLUDE = ./include
 OBJ = ./obj
 SRC = ./src
-SOURCES = $(SRC)/$(wildcard *.cpp)
-OBJECTS = $(SOURCES:.cpp=.o)
+SOURCES = $(wildcard src/*.cpp)
+OBJECTS = $((SOURCES:.cpp=.o):src=obj)
 
 all: $(BIN)/tsp
 
-$(BIN)/tsp: $(OBJECTS)
-	$(CC) -o $@ $^
+$(BIN)/tsp: TSPBestInsertion.o  TSPPartialSolution.o  TSPPoint.o  TSPProblem.o  TSPProblemReader.o  TSPSolution.o  TSPSolver.o
+	g++ -I $(INCLUDE) -o $@ $^
 
 $(OBJ)/%.o: $(SRC)/%.cpp $(INCLUDE)/%.h
-	$(CC) -o $@ -I $(INCLUDE) -c $<
+	g++ -I $(INCLUDE) -o $@  -c $<
 
-$(OBJ)/main.o: $(SRC)/main.cpp $(INCLUDE)/tsp.h
-	g++ -o $@ -I $(INCLUDE) -c $<
+$(OBJ)/main.o: $(SRC)/main.cpp
+	g++ -I $(INCLUDE) -o $@ -c $<
 
 clean:
-	rm $(OBJ)/*.o
+	rm -f $(OBJ)/*.o
 
 doc:
 	doxygen $(DOC)/doxys/Doxyfile

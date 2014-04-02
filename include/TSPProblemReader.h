@@ -1,3 +1,6 @@
+#ifndef TSPPROBLEMREADER_H
+#define TSPPROBLEMREADER_H
+
 #include <iostream>
 #include <fstream>
 #include "TSPProblem.h"
@@ -8,5 +11,7 @@ class TSPProblemReader {
 private:
 
 public:
-	TSPProblem read(string filename);
+	TSPProblem read(string filename); 	
 };
+
+#endif

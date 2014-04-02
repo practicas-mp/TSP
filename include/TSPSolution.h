@@ -1,6 +1,11 @@
+#ifndef TSPSOLUTION_H
+#define TSPSOLUTION_H
+
+
 class TSPSolution {
 private:
-	TSPPartialSolution *partial_solution_completed;
+	int *cities;
+	int number_of_cities;
 
 public:
 
@@ -8,7 +13,7 @@ public:
 		@brief Construye un objeto solución a partir de la solución parcial
 		@param Solución parcial ya acabada
 	*/
-	TSPSolution(TSPPartialSolution partial_solution_completed);
+	TSPSolution(int *cities, int number_of_cities);
 
 	/**
 		@brief Devuelve las ciudades en orden tal que el camino es óptimo
@@ -30,3 +35,5 @@ public:
 	void displaySolution();
 	
 };
+
+#endif

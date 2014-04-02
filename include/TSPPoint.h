@@ -22,12 +22,13 @@ class TSPPoint {
 
 	public:
 
+		TSPPoint();
+
 		/**
 		 * Constructor de la clase TSPPoint
 		 * @param x: abscisa de la ciudad
 		 * @param y: ordenada de la ciudad
 		 */
-
 		TSPPoint(double x, double y);
 
 		/**
