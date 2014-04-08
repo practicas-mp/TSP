@@ -1,13 +1,14 @@
 #include "TSPBestInsertion.h"
 #include "TSPPartialSolution.h"
+#include "TSPSolver.h"
 #include <limits>
 
 using namespace std;
 
 
-TSPBestInsertion::TSPBestInsertion(TSPProblem *problem){
+TSPBestInsertion::TSPBestInsertion(TSPProblem *problem)
+	:TSPSolver(problem){
 
-	this->problem = problem;
 	this->partial = new TSPPartialSolution(*problem);
 
 }
@@ -50,7 +51,7 @@ void TSPBestInsertion::insertNextCity(TSPPartialSolution *partial){
 
 TSPSolution TSPBestInsertion::solve(){
 
-	TSPProblem problem = *this->problem;
+	TSPProblem problem = *(this->problem);
 
 	TSPPartialSolution partial(problem);
 

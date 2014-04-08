@@ -1,7 +1,6 @@
 #ifndef TSPPROBLEM_H
 #define TSPPROBLEM_H
 #include "TSPPoint.h"
-#include "TSPSolver.h"
 
 using namespace std;
 
@@ -14,13 +13,6 @@ using namespace std;
 class TSPProblem {
 
 	private:
-
-		/**
-		 * Puntero a una instancia de la clase TSPSolver que
-		 * se encargará de resolver el problema
-		 */
-
-		TSPSolver* solver;
 
 		/**
 		 * Puntero a la matriz de distancias entre las ciudades
@@ -49,6 +41,8 @@ class TSPProblem {
 
 	public:
 
+		TSPProblem();
+
 		/**
 		 * @brief Constructor de la clase
 		 * @param cities Puntero al array de ciudades del problema
@@ -71,13 +65,6 @@ class TSPProblem {
 		 */			
 
 		int getNumberOfCities();
-
-		/**
-		 * @brief Método para obtener la solución del problema con la heurística
-		 * particular que se pasara en el constructor.
-		 */
-			
-		TSPSolution solve();
 
 };
 

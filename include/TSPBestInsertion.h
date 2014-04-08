@@ -19,19 +19,11 @@ class TSPBestInsertion: public TSPSolver {
 	private:
 
 		/**
-		 * Puntero a la instancia de TSPProblem que representa el 
-		 * problema concreto a resolver
-		 */			
-
-		TSPProblem *problem;
-
-		/**
 		 * Puntero a una instancia de la clase TSPPartialSolution para
 		 * manejar los pasos intermedios de la solución con comodidad
 		 */
 
-		TSPPartialSolution *partial;  // Crearla en el constructor (?)
-
+		TSPPartialSolution *partial;
 
 	public:
 
