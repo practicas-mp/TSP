@@ -5,7 +5,11 @@ all: bin/tsp
 bin/tsp: obj/main.o obj/TSPBestInsertion.o  obj/TSPPartialSolution.o  obj/TSPPoint.o  obj/TSPProblem.o  obj/TSPProblemReader.o  obj/TSPSolution.o obj/TSPSolver.o
 	g++ -g -o $@ $^
 obj/main.o:
+<<<<<<< HEAD
 	g++ -g -I $(INCLUDE) -c -o ./obj/main.o  ./src/main.cpp
+=======
+	g++ -g -I $(INCLUDE) -o ./obj/main.o -c ./src/main.cpp
+>>>>>>> e28ac97db10907d08638ab56e76da0c1a7cfb87e
 
 obj/TSPBestInsertion.o:
 	g++ -g -I $(INCLUDE) -o ./obj/TSPBestInsertion.o -c ./src/TSPBestInsertion.cpp
