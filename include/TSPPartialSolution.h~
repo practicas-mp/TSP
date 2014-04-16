@@ -78,11 +78,6 @@ public:
 	*/
 	bool isAlreadyVisited(int city);
 
-	/**
-		@brief Devuelve el coste de la ruta actual 
-		@return Un float con el coste actual
-	*/
-	double getCurrentCost();
 
 
 };

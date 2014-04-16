@@ -8,6 +8,7 @@ TSPProblem TSPProblemReader::read(string filename){
 	string head;
 	int number_of_cities;
 
+	cout << filename << endl;
 
 	ifstream archivo;
 

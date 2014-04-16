@@ -65,7 +65,7 @@ TSPSolution TSPBestInsertion::solve(){
 
 	}
 
-	TSPSolution sol(partial.getCities(), partial.getNumberOfCities(), partial.getCurrentCost());
+	TSPSolution sol(partial.getCities(), partial.getNumberOfCities());
 
 	return sol;
 

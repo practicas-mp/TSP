@@ -2,11 +2,26 @@
 
 using namespace std;
 
+TSPProblem::TSPProblem(){}
 
 TSPProblem::TSPProblem(TSPPoint* cities, int num_cities){
 
 	this->num_cities = num_cities;
 	this->cities = cities;
+
+	// dynamically allocate distances matrix
+
+	this->distances = new double*[num_cities];
+
+	this->distances[0] = new double[num_cities * num_cities];
+
+	for(int i = 1; i < num_cities; i++){
+
+		this->distances[i] = this->distances[0] + i * num_cities;
+
+	}
+
+	// end allocation
 
 	this->computeDistances();
 
@@ -50,8 +65,4 @@ int TSPProblem::getNumberOfCities(){
 
 	return this->num_cities;
 
-}
-
-TSPSolution TSPProblem::solve(){
-	return this->solver->solve();
 }

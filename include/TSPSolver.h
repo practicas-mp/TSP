@@ -2,6 +2,7 @@
 #define TSPSOLVER_H
 
 #include "TSPSolution.h"
+#include "TSPProblem.h"
 
 using namespace std;
 
@@ -12,8 +13,18 @@ using namespace std;
  */
 
 class TSPSolver {
-public:
-	virtual TSPSolution solve();
+	public:
+
+		/**
+		 * Puntero a la instancia de TSPProblem que representa el 
+		 * problema concreto a resolver
+		 */			
+
+		TSPProblem *problem;
+
+		TSPSolver(TSPProblem *problem);
+
+		virtual TSPSolution solve() = 0;
 };
 
 #endif

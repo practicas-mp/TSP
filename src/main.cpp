@@ -1,6 +1,7 @@
 #include "TSPProblem.h"
 #include "TSPSolution.h"
 #include "TSPProblemReader.h"
+#include "TSPBestInsertion.h"
 #include <iostream>
 
 using namespace std;
@@ -16,9 +17,13 @@ int main(int argc, char *argv[]){
 
 	TSPProblemReader reader;
 
-	TSPProblem problem = reader.read(string(argv[1]));
+	TSPProblem *problem = new TSPProblem();
 
-	TSPSolution sol = problem.solve();
+	*problem = reader.read(string(argv[1]));
+
+	TSPBestInsertion insertion(problem);
+
+	TSPSolution sol = insertion.solve();
 
 	sol.displaySolution();
 
