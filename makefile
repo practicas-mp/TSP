@@ -4,19 +4,16 @@ DOC = ./doc
 INCLUDE = ./include
 OBJ = ./obj
 SRC = ./src
-SOURCES = $(wildcard src/*.cpp)
-OBJECTS = $((SOURCES:.cpp=.o):src=obj)
+SOURCES := $(wildcard $(SRC)/*.cpp)
+OBJECTS := $(SOURCES:$(SRC)/%.cpp=$(OBJ)/%.o)
 
 all: $(BIN)/tsp
 
-$(BIN)/tsp: TSPBestInsertion.o  TSPPartialSolution.o  TSPPoint.o  TSPProblem.o  TSPProblemReader.o  TSPSolution.o  TSPSolver.o
-	g++ -I $(INCLUDE) -o $@ $^
+$(BIN)/tsp: $(OBJECTS)
+	$(CC) -I $(INCLUDE) -o $@ $^
 
-$(OBJ)/%.o: $(SRC)/%.cpp $(INCLUDE)/%.h
-	g++ -I $(INCLUDE) -o $@  -c $<
-
-$(OBJ)/main.o: $(SRC)/main.cpp
-	g++ -I $(INCLUDE) -o $@ -c $<
+$(OBJECTS): $(OBJ)/%.o: $(SRC)/%.cpp
+	$(CC) -I $(INCLUDE) -o $@  -c $<
 
 clean:
 	rm -f $(OBJ)/*.o

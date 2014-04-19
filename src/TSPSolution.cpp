@@ -18,9 +18,12 @@ int TSPSolution::getNumberOfCities(){
 }
 
 void TSPSolution::displaySolution(){
-	cout << "Total cost: " << cost;
-	for(int i = 0; i < number_of_cities; i++){
-		cout << this->cities[i] << ", ";
+	cout << "Total cost: " << cost << endl;
+
+	cout << "Cities: " << this->cities[0];
+
+	for(int i = 1; i < number_of_cities; i++){
+		cout << ", " << this->cities[i];
 	}
 
 	cout << endl;

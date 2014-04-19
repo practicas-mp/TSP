@@ -53,19 +53,39 @@ TSPSolution TSPBestInsertion::solve(){
 
 	TSPProblem problem = *(this->problem);
 
-	TSPPartialSolution partial(problem);
+	TSPPartialSolution *best;
 
-	partial.insertCity(0, 0);  // Insert first city in the first position
+	double best_cost = numeric_limits<double>::infinity(), curr_cost;
 
 	int total_cities = problem.getNumberOfCities();
 
-	while(partial.getNumberOfCities() < total_cities){
+	for(int i = 0; i < total_cities; i++){
 
-		this->insertNextCity(&partial);
+		TSPPartialSolution partial(problem);
 
+		partial.insertCity(i, 0);  // Insert ith city in the first position
+
+
+		while(partial.getNumberOfCities() < total_cities){
+
+			this->insertNextCity(&partial);
+
+		}
+
+		curr_cost = partial.getCurrentCost();
+
+		if(curr_cost < best_cost){
+
+			best_cost = curr_cost;
+
+			best = &partial;
+
+		}
+				
 	}
 
-	TSPSolution sol(partial.getCities(), partial.getNumberOfCities(), partial.getCurrentCost());
+
+	TSPSolution sol(best->getCities(), best->getNumberOfCities(), best->getCurrentCost());
 
 	return sol;
 
