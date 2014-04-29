@@ -2,6 +2,7 @@
 #include "TSPProblem.h"
 #include "TSPPoint.h"
 #include <fstream>
+#include <stdexcept>
 
 TSPProblem TSPProblemReader::read(string filename){
 	double x, y;
@@ -13,20 +14,26 @@ TSPProblem TSPProblemReader::read(string filename){
 
 	archivo.open(filename.c_str());
 
-	archivo >> head;
-	archivo >> number_of_cities;
-
-	TSPPoint *points = new TSPPoint[number_of_cities];
-
-	for(int i = 0; i < number_of_cities; i++){
+	if (archivo){
 		archivo >> head;
-		archivo >> x;
-		archivo >> y;
+		archivo >> number_of_cities;
 
-		points[i] = TSPPoint(x, y);
+		TSPPoint *points = new TSPPoint[number_of_cities];
+
+		for(int i = 0; i < number_of_cities; i++){
+			archivo >> head;
+			archivo >> x;
+			archivo >> y;
+
+			points[i] = TSPPoint(x, y);
+		}
+
+
+		return TSPProblem(points, number_of_cities);
+	}
+	else {
+		throw std::runtime_error("Could not open case file");
 	}
 
-
-	return TSPProblem(points, number_of_cities);
-
 }
+
