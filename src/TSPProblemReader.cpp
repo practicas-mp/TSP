@@ -6,7 +6,7 @@
 
 TSPProblem TSPProblemReader::read(string filename){
 	double x, y;
-	string head;
+	string head, unused;
 	int number_of_cities;
 
 
@@ -21,7 +21,7 @@ TSPProblem TSPProblemReader::read(string filename){
 		TSPPoint *points = new TSPPoint[number_of_cities];
 
 		for(int i = 0; i < number_of_cities; i++){
-			archivo >> head;
+			archivo >> unused;
 			archivo >> x;
 			archivo >> y;
 

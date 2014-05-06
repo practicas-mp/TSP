@@ -34,6 +34,13 @@ public:
 		@brief Muestra por pantalla la solución
 	*/
 	void displaySolution();
+
+
+	/**
+		@brief Destructor
+	**/
+
+	~TSPSolution();
 	
 };
 

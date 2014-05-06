@@ -85,6 +85,12 @@ public:
 	double getCurrentCost();
 
 
+	/**
+		@brief Destructor 
+	**/
+	~TSPPartialSolution();
+
+
 };
 
 #endif

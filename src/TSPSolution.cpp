@@ -28,3 +28,8 @@ void TSPSolution::displaySolution(){
 
 	cout << endl;
 }
+
+
+TSPSolution::~TSPSolution(){
+	
+}

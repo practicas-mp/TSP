@@ -21,6 +21,11 @@ TSPPartialSolution::TSPPartialSolution(TSPProblem problem){
 	this->cities_inserted = 0;
 }
 
+TSPPartialSolution::~TSPPartialSolution(){
+	delete[] cities;
+	delete[] visitadas;
+}
+
 double  TSPPartialSolution::getCostOfInsertion(int city, int position){
 	double cost = 0;
 
