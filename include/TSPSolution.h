@@ -17,6 +17,25 @@ public:
 	TSPSolution(int *cities, int number_of_cities, double cost);
 
 	/**
+	 * @brief Constructor de copia de la clase
+	 */
+
+	TSPSolution(const TSPSolution &other);
+	
+	/**
+	 * @brief Operador de asignación de la clase
+	 */
+
+	TSPSolution& operator=(const TSPSolution &other);
+		
+
+	/**
+	 * @brief Destructor de la clase
+	 */
+	
+	~TSPSolution();
+
+	/**
 		@brief Devuelve las ciudades en orden tal que el camino es óptimo
 		@return un array con los índices de las ciudades en orden
 	*/
@@ -35,13 +54,6 @@ public:
 	*/
 	void displaySolution();
 
-
-	/**
-		@brief Destructor
-	**/
-
-	~TSPSolution();
-	
 };
 
 #endif

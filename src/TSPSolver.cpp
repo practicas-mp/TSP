@@ -5,6 +5,8 @@
 using namespace std;
 
 
+TSPSolver::TSPSolver(){}
+
 TSPSolver::TSPSolver(TSPProblem *problem){
 
 	this->problem = problem;

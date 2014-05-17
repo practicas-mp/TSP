@@ -22,6 +22,8 @@ class TSPSolver {
 
 		TSPProblem *problem;
 
+		TSPSolver();
+
 		TSPSolver(TSPProblem *problem);
 
 		virtual TSPSolution solve() = 0;

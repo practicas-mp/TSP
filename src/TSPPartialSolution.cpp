@@ -2,14 +2,16 @@
 #include "TSPProblem.h"
 
 #include <iostream>
+#include <stdexcept>
+#include <algorithm>
 
 using namespace std;
 
-TSPPartialSolution::TSPPartialSolution(TSPProblem problem){
-	this->problem = &problem;
-	this->distances = problem.getDistancesMatrix();
+TSPPartialSolution::TSPPartialSolution(TSPProblem *problem){
+	this->problem = problem;
+	this->distances = problem->getDistancesMatrix();
 
-	this->number_of_cities = problem.getNumberOfCities();
+	this->number_of_cities = problem->getNumberOfCities();
 
 	this->cities = new int[this->number_of_cities];
 
@@ -19,6 +21,27 @@ TSPPartialSolution::TSPPartialSolution(TSPProblem problem){
 		visitadas[i] = false;
 
 	this->cities_inserted = 0;
+}
+
+
+TSPPartialSolution& TSPPartialSolution::operator=(const TSPPartialSolution &other){
+
+	if(this->number_of_cities != other.number_of_cities){
+
+		throw logic_error("Number of cities must meet");
+
+	}
+
+	*(this->problem) = *(other.problem);
+	this->distances = this->problem->getDistancesMatrix();
+	this->number_of_cities = other.number_of_cities;
+
+	copy(other.cities, other.cities + this->number_of_cities, this->cities);
+
+	copy(other.visitadas, other.visitadas + this->number_of_cities, this->visitadas);
+
+	this->cities_inserted = other.cities_inserted;
+
 }
 
 TSPPartialSolution::~TSPPartialSolution(){

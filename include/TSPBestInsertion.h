@@ -35,6 +35,26 @@ class TSPBestInsertion: public TSPSolver {
 		TSPBestInsertion(TSPProblem *problem);
 
 		/**
+		 * @brief Constructor de copia de la clase TSPBestInsertion
+		 * @param other Instancia de la clase TSPBestInsertion de la que se quiere copiar
+		 */
+			
+		TSPBestInsertion(const TSPBestInsertion& other);
+
+		/**
+		 * @brief Operador de asignación de la clase TSPBestInsertion
+		 * @param other Instancia de la clase TSPBestInsertion que queremos asignar
+		 */
+
+		TSPBestInsertion& operator=(const TSPBestInsertion &other);
+			
+		/**
+		 * @brief Destructor de la clase TSPBestInsertion
+		 */
+		
+		~TSPBestInsertion();
+
+		/**
 		 * Método para insertar una nueva ciudad de acuerdo con
 		 * el "algoritmo" seguido por esta solución del problema
 		 */			

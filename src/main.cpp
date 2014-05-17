@@ -18,13 +18,11 @@ int main(int argc, char *argv[]){
 	}
 
 
-
 	TSPProblemReader reader;
 
-	TSPProblem *problem = new TSPProblem();
-	*problem = reader.read(string(argv[1]));
+	TSPProblem problem = reader.read(string(argv[1]));
 
-	TSPBestInsertion best_insertion(problem);
+	TSPBestInsertion best_insertion(&problem);
 
 	TSPSolution sol = best_insertion.solve();
 

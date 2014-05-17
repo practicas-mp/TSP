@@ -2,6 +2,7 @@
 #include "TSPPartialSolution.h"
 #include "TSPSolver.h"
 #include <limits>
+#include <algorithm>
 
 using namespace std;
 
@@ -9,7 +10,31 @@ using namespace std;
 TSPBestInsertion::TSPBestInsertion(TSPProblem *problem)
 	:TSPSolver(problem){
 
-	this->partial = new TSPPartialSolution(*problem);
+	this->partial = new TSPPartialSolution(problem);
+
+}
+
+TSPBestInsertion::TSPBestInsertion(const TSPBestInsertion& other){
+
+		this->partial = new TSPPartialSolution(other.problem);
+
+}
+
+TSPBestInsertion& TSPBestInsertion::operator=(const TSPBestInsertion &other){
+
+	if(this != &other){
+
+		*this->partial = *other.partial;
+		
+	}
+
+	return *this;
+
+}
+
+TSPBestInsertion::~TSPBestInsertion(){
+
+	delete this->partial;
 
 }
 
@@ -51,13 +76,13 @@ void TSPBestInsertion::insertNextCity(TSPPartialSolution *partial){
 
 TSPSolution TSPBestInsertion::solve(){
 
-	TSPProblem problem = *(this->problem);
+	TSPProblem *problem = this->problem;
 
-	TSPPartialSolution *best;
+	TSPPartialSolution best(problem);
 
 	double best_cost = numeric_limits<double>::infinity(), curr_cost;
 
-	int total_cities = problem.getNumberOfCities();
+	int total_cities = problem->getNumberOfCities();
 
 	for(int i = 0; i < total_cities; i++){
 
@@ -78,14 +103,13 @@ TSPSolution TSPBestInsertion::solve(){
 
 			best_cost = curr_cost;
 
-			best = &partial;
+			best = partial;
 
 		}
 				
 	}
 
-
-	TSPSolution sol(best->getCities(), best->getNumberOfCities(), best->getCurrentCost());
+	TSPSolution sol(best.getCities(), best.getNumberOfCities(), best.getCurrentCost());
 
 	return sol;
 

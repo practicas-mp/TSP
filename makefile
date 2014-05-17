@@ -10,10 +10,10 @@ OBJECTS := $(SOURCES:$(SRC)/%.cpp=$(OBJ)/%.o)
 all: $(BIN)/tsp
 
 $(BIN)/tsp: $(OBJECTS)
-	$(CC) -I $(INCLUDE) -o $@ $^
+	$(CC) -g -I $(INCLUDE) -o $@ $^
 
 $(OBJECTS): $(OBJ)/%.o: $(SRC)/%.cpp
-	$(CC) -I $(INCLUDE) -o $@  -c $<
+	$(CC) -g -I $(INCLUDE) -o $@  -c $<
 
 clean:
 	rm -f $(OBJ)/*.o

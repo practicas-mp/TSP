@@ -28,16 +28,28 @@ class TSPProblem {
 		TSPPoint* cities;
 
 		/**
+		 * Atributo que controla el número de ciudades que debe manejar el problema
+		 */
+
+		int num_cities;
+
+		/**
 		 * @brief Método que permite calcular la matriz de distancias asociada al problema
 		 */
 
 		void computeDistances();
 
-		/**
-		 * Atributo que controla el número de ciudades que debe manejar el problema
+		/*
+		 * @brief Método para reservar espacio para el array de ciudades
 		 */
 
-		int num_cities;
+		void allocateCities();
+
+		/**
+		 * @brief Método para reservar espacio para la matriz de distancias
+		 */
+
+		void allocateDistanceMatrix();
 
 	public:
 
@@ -49,8 +61,30 @@ class TSPProblem {
 		 * @param num_cities El total de ciudades de que consta el problema
 		 */
 
-
 		TSPProblem(TSPPoint* cities, int num_cities);
+
+		/**
+		 * @brief Constructor de copia de la clase
+		 * @param other Instancia de la propia clase que queremos copiar
+		 */
+
+		TSPProblem(const TSPProblem& other);
+
+		/**
+		 * @brief Operador de asignación de la clase
+		 * @param other Instancia de la propia clase que queremos asignar
+		 */
+
+		TSPProblem& operator=(const TSPProblem &other);
+
+		/**
+		 * @brief Destructor de clase
+		 */
+
+		~TSPProblem();
+			
+			
+			
 
 		/**
 		 * @brief Getter de la matriz de distancias

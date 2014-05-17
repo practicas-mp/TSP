@@ -25,8 +25,13 @@ public:
 		@param problem El problema que se quiere resolver
 		@return void
 	*/
-	TSPPartialSolution(TSPProblem problem);
+	TSPPartialSolution(TSPProblem *problem);
 
+	/**
+	 * @brief Operador de asignación de la clase
+	 */
+		
+	TSPPartialSolution& operator=(const TSPPartialSolution &other);
 
 	/** 
 		@brief Calcula el coste que tendría la inserción de una ciudad en una posición concreta
