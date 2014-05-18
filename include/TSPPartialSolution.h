@@ -91,6 +91,13 @@ public:
 
 
 	/**
+		@brief Devuelve la distancia de la ciudad en la última posición a la indicada
+		@param La ciudad indicada
+		@return La distancia de la última a la indicada
+	*/
+	double getLastNeighbourCost(int city);
+
+	/**
 		@brief Destructor 
 	**/
 	~TSPPartialSolution();

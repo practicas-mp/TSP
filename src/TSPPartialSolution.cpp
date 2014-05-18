@@ -79,6 +79,10 @@ void TSPPartialSolution::insertCity(int city, int position){
 	cities_inserted++;
 }
 
+double TSPPartialSolution::getLastNeighbourCost(int city){
+	return distances[cities[cities_inserted - 1]][city];
+};
+
 double TSPPartialSolution::getCurrentCost(){
 	double cost = 0;
 

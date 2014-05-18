@@ -11,6 +11,11 @@ class TSPProblemReader {
 private:
 
 public:
+	/**
+		@brief Devuelve una instancia de la clase problema a partir de su archivo
+		@param El nombre del archivo del problema
+		@return El problema especificado en el archivo
+	*/
 	TSPProblem read(string filename); 	
 };
 

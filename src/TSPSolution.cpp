@@ -14,6 +14,7 @@ TSPSolution::TSPSolution(int *cities, int number_of_cities, double cost){
 	copy(cities, cities + number_of_cities, this->cities);
 }
 
+
 TSPSolution::TSPSolution(const TSPSolution &other){
 	this->number_of_cities = other.number_of_cities;
 	this->cost = other.cost;
